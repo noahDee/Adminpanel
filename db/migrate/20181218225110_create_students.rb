@@ -8,6 +8,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.boolean :enrolled
       t.integer :age
       t.string :education
+      t.integer :cohort_id
 
       t.timestamps
     end

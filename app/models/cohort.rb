@@ -1,6 +1,6 @@
 class Cohort < ApplicationRecord
-  validates :name, :start_date, :end_date, :instructor_id, presence: true
-  belongs_to :course
+  validates :name, presence: true
+  belongs_to :course, optional: true
   has_one :instructor
   has_many :students
 end
