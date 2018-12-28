@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_19_211744) do
+ActiveRecord::Schema.define(version: 2018_12_26_205234) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+  end
 
   create_table "cohorts", force: :cascade do |t|
     t.string "name"
@@ -35,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_12_19_211744) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.boolean "active"
     t.integer "age"
     t.string "education"
@@ -43,19 +53,21 @@ ActiveRecord::Schema.define(version: 2018_12_19_211744) do
     t.integer "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_instructors_on_email", unique: true
   end
 
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.boolean "enrolled"
     t.integer "age"
     t.string "education"
     t.integer "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_students_on_email", unique: true
   end
 
 end

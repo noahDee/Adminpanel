@@ -4,7 +4,7 @@ class CreateInstructors < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.string :password
+      t.string :password_digest
       t.boolean :active
       t.integer :age
       t.string :education
@@ -13,5 +13,6 @@ class CreateInstructors < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :instructors,:email, unique: true
   end
 end

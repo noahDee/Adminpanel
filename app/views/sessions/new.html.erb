@@ -1,0 +1,11 @@
+<h1>login</h1>
+<%= form_for(:session) do |f|%>
+<%= f.label :email  %>
+<%= f.email_field :email %><br>
+<%=  f.label :password%>
+<%=  f.password_field :password%><br>
+<%=  f.label :user%>
+<%=  select_tag(:user, options_for_select([['Admin'], ['Student'], ['Instructor']]))%><br>
+
+<%=  f.submit "Log in"%>
+<% end%>

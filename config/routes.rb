@@ -1,26 +1,21 @@
 Rails.application.routes.draw do
-  get 'students/index'
-  get 'students/edit'
-  get 'students/new'
-  get 'students/show'
-  get 'instructors/index'
-  get 'instructors/edit'
-  get 'instructors/new'
-  get 'instructors/show'
-  get 'courses/index'
-  get 'courses/edit'
-  get 'courses/new'
-  get 'courses/show'
-  get 'cohorts/index'
-  get 'cohorts/edit'
-  get 'cohorts/new'
-  get 'cohorts/show'
-  root 'pages#home'
+
+  # root '/login'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/student', to: 'students#edit'
+  get '/instructor', to: 'instructors#edit'
+  get '/add-student', to: 'students#new'
+  post '/add-student', to: 'students#create'
+  get '/add-instructor', to: 'instructors#new'
+  post '/add-instructor', to: 'instructors#create'
+  get '/admin', to: 'student#edit'
   resources :cohorts
   resources :courses
   resources :instructors
   resources :students
-  get 'pages/sign_in'
+  resources :sessions
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
