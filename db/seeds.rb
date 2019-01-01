@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 course1 = Course.new(name: "Baking", class_hours: 140)
 cohort1 = Cohort.new(name: "Spring 2019")
 instructor1 = Instructor.new(first_name: "Noah", last_name: "lastname", email: "email@example.com", password:'1234',active: true, education: "edu level", age: 47, salary: 10000)
@@ -18,3 +20,28 @@ cohort1.students << student1
 cohort1.save
 course1.cohorts << cohort1
 course1.save
+
+10.times do
+  Student.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.safe_email,
+    password: "1234",
+    enrolled: true,
+    education: "PhD",
+    age: 27
+  )
+end
+
+10.times do
+  Instructor.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.safe_email,
+    password: "1234",
+    active: false,
+    education: "PhD",
+    age: 52,
+    salary: 40000
+  )
+end

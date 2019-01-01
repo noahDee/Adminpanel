@@ -1,6 +1,6 @@
 <h1>Students#new</h1>
 
-<%= form_for(@student) do |f|%>
+<%= form_for(@student,url: create_student_url) do |f|%>
 <%= f.label :first_name, "First Name"%>
 <%= f.text_field :first_name%><br>
 <%= f.label :last_name, "Last Name"%>

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :reset_session
   def new
 
   end
@@ -28,8 +29,9 @@ end
   def student_login
     user = Student.find_by(email: params[:session]["email"].downcase)
       if user && user.authenticate(params[:session][:password])
-        params[:session][:user_id] = user.id
-          redirect_to '/student'
+        session[:user_id] = user.id
+        session[:user] = 'student'
+          redirect_to "/student-home"
       else
         flash[:danger] = "Invalid Credentials"
         render 'new'
@@ -39,7 +41,8 @@ end
   def instructor_login
     user = Instructor.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      params[:session][:user_id] = user.id
+      session[:user_id] = user.id
+      session[:user] = 'instructor'
         redirect_to '/instructor'
       else
         flash.now[:danger] = "Invalid Credentials"
@@ -50,7 +53,8 @@ end
   def admin_login
     user = Admin.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      params[:session][:user_id] = user.id
+      session[:user_id] = user.id
+      session[:user] = 'admin'
       redirect_to '/admin'
     else
       flash.now[:danger] = "Invalid Credentials"

@@ -1,2 +1,5 @@
 <h1>Cohorts#index</h1>
 <p>Find me in app/views/cohorts/index.html.erb</p>
+<% Cohort.all.each do |c|%>
+<%= link_to(c.name, "/cohort/#{c.id}")%><br>
+<% end%>
