@@ -1,56 +1,50 @@
 class StudentsController < ApplicationController
   before_action :require_login
-  def index
-    @students = Student.all
-  end
 
-  def edit
-  end
-
-  def new
-    @student = Student.new
-  end
-
-  def create
-    @student = Student.new(student_params)
-    @student.email.downcase!
-    if @student.valid?
-      @student.save
-      redirect_to "/student/#{@student.id}"
-    else
-      p @student.errors.messages
-      flash.now[:error] = "Invalid Credentials"
-      render 'new'
-    end
-  end
 
   def show
     p session[:user_id]
     p session[:user]
     p params[:id]
     if session[:user] == 'student' && session[:user_id] == params[:id].to_i
-    redirect_to '/student-home'
+    render '/student-home'
 
   else
     @student = Student.find(params[:id])
   end
 end
 
-def home
-  p session[:user_id]
-  p session[:user]
-  @student = Student.find_by_id(session[:user_id])
-end
+  def home
+    p session[:user_id]
+    p session[:user]
+    @student = Student.find_by_id(session[:user_id])
+  end
+
+  def edit
+    @student = Student.find_by_id(session[:user_id])
+  end
+
+  def update
+    @student = Student.find_by_id(session[:user_id])
+    @student.update(student_params)
+    @student.email.downcase!
+    if @student.valid?
+      redirect_to home_path
+    else
+      flash[:error] = "Invalid Credentials"
+      render 'edit'
+    end
+  end
 
   private
 
   def student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :password, :enrolled, :age, :education)
+    params.require(:student).permit(:email, :password)
   end
 
   def require_login
-    if session[:user] == nil || session[:user_id] == nil
-      flash[:error] = "You must be logged in to access this page"
+    if session[:user] != "student"
+      flash.now[:error] = "You must be logged in to access this page"
       redirect_to '/login'
   end
 end

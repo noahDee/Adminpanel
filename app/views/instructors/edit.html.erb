@@ -1,2 +1,10 @@
 <h1>Instructors#edit</h1>
-<p>Find me in app/views/instructors/edit.html.erb</p>
+<%= form_for(@instr, url: edit_instructor_url) do |f|%>
+
+<%= f.label :email%>
+<%= f.email_field :email%><br>
+<%= f.label :password%>
+<%= f.password_field :password%><br>
+
+<%= f.submit "Submit"%>
+<% end %>

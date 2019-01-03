@@ -27,7 +27,7 @@ course1.save
     last_name: Faker::Name.last_name,
     email: Faker::Internet.safe_email,
     password: "1234",
-    enrolled: true,
+    enrolled: false,
     education: "PhD",
     age: 27
   )

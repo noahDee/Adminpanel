@@ -1,6 +1,6 @@
-<h1>Students#new</h1>
-
-<%= form_for(@student,url: create_student_url) do |f|%>
+<h1>Students#edit</h1>
+<p>Find me in app/views/students/edit.html.erb</p>
+<%= form_for [:admin, @student] do |f|%>
 <%= f.label :first_name, "First Name"%>
 <%= f.text_field :first_name%><br>
 <%= f.label :last_name, "Last Name"%>

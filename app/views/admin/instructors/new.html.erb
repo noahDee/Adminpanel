@@ -1,5 +1,5 @@
 <h1>Instructors#new</h1>
-<%= form_for(@instr, url: create_instructor_url) do |f|%>
+<%= form_for [:admin, @instr] do |f|%>
 <%= f.label :first_name, "First Name"%>
 <%= f.text_field :first_name%><br>
 <%= f.label :last_name, "Last Name"%>

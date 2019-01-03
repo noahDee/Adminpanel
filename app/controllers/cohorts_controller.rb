@@ -1,6 +1,6 @@
 class CohortsController < ApplicationController
   def index
-    
+
   end
 
   def edit
@@ -22,7 +22,7 @@ class CohortsController < ApplicationController
     @course.cohorts << @cohort
     if @cohort.valid?
       @cohort.save
-      redirect_to "/cohort/#{@cohort.id}"
+      redirect_to "/cohorts/#{@cohort.id}"
     else
       flash[:error] = "Invalid credentials"
       render 'new'
@@ -35,9 +35,9 @@ class CohortsController < ApplicationController
 
   private
 
-  def cohort_params
-    params.require(:cohort).permit(:name, :start_date, :end_date, :instructor_id, :course_id)
-  end
+  # def cohort_params
+  #   params.require(:cohort).permit(:name, :start_date, :end_date, :instructor_id, :course_id)
+  # end
 
   def cohort_init
 

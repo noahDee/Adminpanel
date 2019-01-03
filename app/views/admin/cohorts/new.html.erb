@@ -1,6 +1,6 @@
 <h1>Cohorts#new</h1>
 <p>Find me in app/views/cohorts/new.html.erb</p>
-<%= form_for(@cohort,url: create_cohort_url) do |f|%>
+<%= form_for [:admin, @cohort] do |f|%>
 <%= f.label :name%>
 <%= f.text_field :name%><br>
 <%= f.label :start_date, "Start Date"%>

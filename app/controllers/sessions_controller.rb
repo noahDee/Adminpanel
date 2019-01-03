@@ -31,7 +31,7 @@ end
       if user && user.authenticate(params[:session][:password])
         session[:user_id] = user.id
         session[:user] = 'student'
-          redirect_to "/student-home"
+          redirect_to student_home_path
       else
         flash[:danger] = "Invalid Credentials"
         render 'new'
@@ -43,7 +43,7 @@ end
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       session[:user] = 'instructor'
-        redirect_to '/instructor'
+        redirect_to instructor_home_path
       else
         flash.now[:danger] = "Invalid Credentials"
         render 'new'
@@ -55,7 +55,7 @@ end
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       session[:user] = 'admin'
-      redirect_to '/admin'
+      redirect_to admin_students_path
     else
       flash.now[:danger] = "Invalid Credentials"
       render 'new'
