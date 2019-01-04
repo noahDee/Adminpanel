@@ -7,14 +7,8 @@
 <%= f.text_field :last_name%><br>
 <%= f.label :email%>
 <%= f.email_field :email%><br>
-<%= f.label :password%>
-<%= f.password_field :password%><br>
 <%= f.label :education, "Education Level"%>
-<%= f.select(:education) do %>
-  <% [['Highschool','Highschool'], ['College'], ['Masters'], ['PhD']].each do |c| -%>
-    <%= content_tag(:option, c.first, value: c.last) %>
-  <% end %>
-  <% end%><br>
+<%= f.select:education, [['Highschool'], ['College'], ['Masters'], ['PhD']]%><br>
 <%= f.label :age%>
 <%= f.number_field :age%><br>
 <%= f.submit "Submit"%>

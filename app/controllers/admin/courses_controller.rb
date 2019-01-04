@@ -1,4 +1,9 @@
 class Admin::CoursesController < AdminsController
+
+  def show
+    @course = Course.find_by_id(params[:id])
+  end
+
   def new
     @course = Course.new
   end
@@ -8,7 +13,7 @@ class Admin::CoursesController < AdminsController
     @course.name = @course.name.upcase_first
     if @course.valid?
       @course.save
-      redirect_to "/courses/#{@course.id}"
+      redirect_to "/admin/courses/#{@course.id}"
     else
       flash.now[:error] = "Invalid Credentials"
       render 'new'
@@ -23,10 +28,19 @@ class Admin::CoursesController < AdminsController
     @course = Course.find_by_id(params[:id])
     @course.update(course_params)
     if @course.valid?
-      redirect_to "/courses/#{@course.id}"
+      redirect_to "/admin/courses/#{@course.id}"
     else
       flash.now[:error] = "Invalid Credentials"
       render 'edit'
+    end
+  end
+
+  def index
+  end
+
+  def destroy
+    respond_to do |format|
+      format.js
     end
   end
 

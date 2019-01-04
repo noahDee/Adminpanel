@@ -1,5 +1,10 @@
 class Admin::CohortsController < AdminsController
 
+
+  def show
+    @cohort = Cohort.find_by_id(params[:id])
+  end
+
   def new
     @cohort = Cohort.new
   end
@@ -17,7 +22,7 @@ class Admin::CohortsController < AdminsController
     @course.cohorts << @cohort
     if @cohort.valid?
       @cohort.save
-      redirect_to "/cohorts/#{@cohort.id}"
+      redirect_to "/admin/cohorts/#{@cohort.id}"
     else
       flash[:error] = "Invalid credentials"
       render 'new'
@@ -37,14 +42,23 @@ class Admin::CohortsController < AdminsController
     @instr.update_attribute(:active, true)
     @course = Course.find_by_id(@cohort.course_id)
     @cohort.course = @course
-    if @old_instr.cohorts.count == 0
+    if @old_instr.cohorts == nil
       @old_instr.update_attribute(:active, false)
     end
     if @cohort.valid?
-      redirect_to "/cohorts/#{@cohort.id}"
+      redirect_to "/admin/cohorts/#{@cohort.id}"
     else
       flash[:error] = "Invalid credentials"
       render 'edit'
+    end
+  end
+
+  def index
+  end
+
+  def destroy
+    respond_to do |format|
+      format.js
     end
   end
 

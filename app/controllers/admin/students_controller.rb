@@ -5,11 +5,11 @@ class Admin::StudentsController < AdminsController
   end
 
   def create
-    @student = Student.new(student_params)
+    @student = Student.new(new_student_params)
     @student.email.downcase!
     if @student.valid?
       @student.save
-      redirect_to "/students/#{@student.id}"
+      redirect_to "admin/students/#{@student.id}"
     else
       p @student.errors.messages
       flash.now[:error] = "Invalid Credentials"
@@ -18,7 +18,6 @@ class Admin::StudentsController < AdminsController
   end
 
   def index
-    @students = Student.all
   end
 
   def edit
@@ -27,19 +26,35 @@ class Admin::StudentsController < AdminsController
 
   def update
     @student = Student.find_by_id(params[:id])
-    @student.update(student_params)
+    @student.update(edit_student_params)
 
     if @student.valid?
-      redirect_to "/students/#{@student.id}"
+      redirect_to "/admin/students/#{@student.id}"
     else
       flash.now[:error] = "Invalid Credentials"
       render 'edit'
     end
   end
 
+  def show
+    @student = Student.find_by_id(params[:id])
+  end
+
+  def destroy
+    respond_to do |format|
+      format.js
+    end
+    # @student= = Student.find_by_id(params[:id])
+    # redirect_to new_admin_student_path
+  end
+
   private
-  def student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :password, :enrolled, :age, :education)
+  def new_student_params
+    params.require(:student).permit(:first_name, :last_name, :email, :enrolled, :age, :education, :password)
+  end
+
+  def edit_student_params
+    params.require(:student).permit(:first_name, :last_name, :email, :enrolled, :age, :education)
   end
 
 end

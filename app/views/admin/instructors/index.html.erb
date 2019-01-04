@@ -1,0 +1,5 @@
+<h1>instructors#index</h1>
+<% Instructor.all.each do |i|%>
+<%= link_to(i.first_name, "/instructor/#{i.id}")%>
+<%= link_to 'Delete', "/admin/instructors/#{i.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}%><br>
+<% end%>

@@ -1,0 +1,5 @@
+<h1>Cohorts#index</h1>
+<% Cohort.all.each do |c|%>
+<%= link_to(c.name, "/cohort/#{c.id}")%>
+<%= link_to 'Delete', "/admin/cohorts/#{c.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}%><br>
+<% end%>

@@ -26,10 +26,10 @@ end
 
   def update
     @student = Student.find_by_id(session[:user_id])
-    @student.update(student_params)
+    @student.update(edit_student_params)
     @student.email.downcase!
     if @student.valid?
-      redirect_to home_path
+      redirect_to student_home_path
     else
       flash[:error] = "Invalid Credentials"
       render 'edit'
@@ -38,8 +38,8 @@ end
 
   private
 
-  def student_params
-    params.require(:student).permit(:email, :password)
+  def edit_student_params
+    params.require(:student).permit(:email, :password, :password_confirmation)
   end
 
   def require_login

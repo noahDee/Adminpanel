@@ -24,7 +24,7 @@ class InstructorsController < ApplicationController
 
   def update
     @instr = Instructor.find_by_id(session[:user_id])
-    @instr.update(instr_params)
+    @instr.update(edit_instr_params)
     @instr.email.downcase!
     if @instr.valid?
       redirect_to instructor_home_path
@@ -33,11 +33,11 @@ class InstructorsController < ApplicationController
       render 'edit'
     end
   end
-  
+
   private
 
-  def instr_params
-    params.require(:instructor).permit(:email, :password)
+  def edit_instr_params
+    params.require(:instructor).permit(:email, :password, :password_confirmation)
   end
 
   def require_login

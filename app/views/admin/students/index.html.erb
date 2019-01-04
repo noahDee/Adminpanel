@@ -1,5 +1,6 @@
 <h1>Students#index</h1>
 <p>Find me in app/views/students/index.html.erb</p>
-<% @students.each do |s|%>
-<%= link_to(s.first_name, "/student/#{s.id}")%><br>
+<% Student.all.each do |s|%>
+<%= link_to(s.first_name, "/student/#{s.id}")%>
+<%= link_to 'Delete', "/admin/students/#{s.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}%><br>
 <% end%>

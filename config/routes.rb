@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   # root '/login'
   # resources :admins
+
   namespace :admin do
-      resources :students, only: [:new, :create, :index, :edit, :update]
-      resources :instructors, only: [:new, :create, :edit, :update]
-      resources :cohorts, only: [:new, :create, :edit, :update]
-      resources :courses, only: [:new, :create, :edit, :update]
+      resources :students, only: [:new, :create, :index, :edit, :update, :destroy, :show]
+      resources :instructors, only: [:new, :create, :edit, :update, :destroy, :index, :show]
+      resources :cohorts, only: [:new, :create, :edit, :update, :destroy, :index, :show]
+      resources :courses, only: [:new, :create, :edit, :update, :destroy, :index, :show]
       get '/cohorts/:id/add-students', to: 'cohorts#add_students'
   end
 
@@ -25,9 +31,6 @@ Rails.application.routes.draw do
   get '/edit', to: 'instructors#edit'
   patch '/edit', to: 'instructors#update', as: :edit_instructor
   end
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
 
 
 
