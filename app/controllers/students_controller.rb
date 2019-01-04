@@ -1,6 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :require_login
-
+  before_action :check_user, only: [:home, :edit, :update]
 
   def show
     p session[:user_id]
@@ -42,10 +41,11 @@ end
     params.require(:student).permit(:email, :password, :password_confirmation)
   end
 
-  def require_login
+  def check_user
     if session[:user] != "student"
-      flash.now[:error] = "You must be logged in to access this page"
+      flash.now[:error] = "You do not have to access this page"
       redirect_to '/login'
+    end
   end
-end
+
 end

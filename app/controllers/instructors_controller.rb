@@ -1,5 +1,5 @@
 class InstructorsController < ApplicationController
-  before_action :require_login
+  before_action :check_user, only: [:home, :edit, :update]
 
   def index
     @instructors = Instructor.all
@@ -40,9 +40,10 @@ class InstructorsController < ApplicationController
     params.require(:instructor).permit(:email, :password, :password_confirmation)
   end
 
-  def require_login
-    if session[:user] != 'instructor'
-      flash[:error] = "You must be logged in to access this page"
+
+  def check_user
+    if session[:user] != "instructor"
+      flash.now[:error] = "You do not have to access this page"
       redirect_to '/login'
     end
   end

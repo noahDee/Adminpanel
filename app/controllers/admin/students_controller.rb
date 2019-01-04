@@ -25,6 +25,10 @@ class Admin::StudentsController < AdminsController
   end
 
   def update
+    #   trying password confirm before change
+  #   @admin = Admin.find_by_id(session[:user_id])
+  # if @admin && @admin.authenticate(admin_confirm_params)
+
     @student = Student.find_by_id(params[:id])
     @student.update(edit_student_params)
 
@@ -34,6 +38,7 @@ class Admin::StudentsController < AdminsController
       flash.now[:error] = "Invalid Credentials"
       render 'edit'
     end
+
   end
 
   def show
@@ -55,6 +60,10 @@ class Admin::StudentsController < AdminsController
 
   def edit_student_params
     params.require(:student).permit(:first_name, :last_name, :email, :enrolled, :age, :education)
+  end
+
+  def admin_confirm_params
+    params.require(:admin).permit(:password)
   end
 
 end
