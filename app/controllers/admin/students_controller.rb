@@ -9,7 +9,7 @@ class Admin::StudentsController < AdminsController
     @student.email.downcase!
     if @student.valid?
       @student.save
-      redirect_to "admin/students/#{@student.id}"
+      redirect_to "/admin/students/#{@student.id}"
     else
       p @student.errors.messages
       flash.now[:error] = "Invalid Credentials"

@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  root 'pages#blank'
   # resources :admins
 
   namespace :admin do
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
       resources :instructors, only: [:new, :create, :edit, :update, :destroy, :index, :show]
       resources :cohorts, only: [:new, :create, :edit, :update, :destroy, :index, :show]
       resources :courses, only: [:new, :create, :edit, :update, :destroy, :index, :show]
+      get '/page', to: 'pages#blank'
       get '/cohorts/:id/add-students', to: 'cohorts#add_students'
   end
 

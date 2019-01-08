@@ -1,5 +1,29 @@
 <h1>instructors#index</h1>
 <% Instructor.all.each do |i|%>
-<%= link_to(i.first_name, "/instructor/#{i.id}")%>
-<%= link_to 'Delete', "/admin/instructors/#{i.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}%><br>
+<div class="row">
+  <div class="col-md-1">
+    <%= link_to(i.first_name, "/admin/instructors/#{i.id}")%>
+
+  </div>
+  <div class="col-md-1">
+    <%= link_to(i.last_name, "/admin/instructors/#{i.id}")%>
+
+  </div>
+  <div class="col-md-1">
+    <%= link_to(i.age, "/admin/instructors/#{i.id}")%>
+
+  </div>
+  <div class="col-md-1">
+    <%= link_to(i.education, "/admin/instructors/#{i.id}")%>
+
+  </div>
+  <div class="col-md-1">
+    <%= link_to(i.active.to_s, "/admin/instructors/#{i.id}")%>
+
+  </div>
+  <div class="col-md-1">
+    <%= link_to(i.salary, "/admin/instructors/#{i.id}")%>
+  </div>
+  <%= link_to 'Delete', "/admin/instructors/#{i.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}%><br>
+</div>
 <% end%>
