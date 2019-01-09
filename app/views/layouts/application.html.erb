@@ -4,154 +4,43 @@
     <title>AdminApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript">
-      $(function () {
-    $('.navbar-toggle').click(function () {
-        $('.navbar-nav').toggleClass('slide-in');
-        $('.side-body').toggleClass('body-slide-in');
-        $('#search').removeClass('in').addClass('collapse').slideUp(200);
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+      <div class="row">
+        <div class="col-md-3">
+          <img class="rounded-circle" src="" alt="">
+          <nav class="border-right">
+            <ul>
 
-        /// uncomment code for absolute positioning tweek see top comment in css
-        //$('.absolute-wrapper').toggleClass('slide-in');
-
-    });
-    //
-    // $('#link1').click(function () {
-    //   $('.active').toggleClass('active')
-    //   $('#link1').toggleClass('active')
-    // });
-
-   // Remove menu for searching
-   $('#search-trigger').click(function () {
-        $('.navbar-nav').removeClass('slide-in');
-        $('.side-body').removeClass('body-slide-in');
-
-        /// uncomment code for absolute positioning tweek see top comment in css
-        //$('.absolute-wrapper').removeClass('slide-in');
-
-    });
-});
-    </script>
-    <!------ Include the above in your HEAD tag ---------->
-
-    <div class="row">
-        <!-- uncomment code for absolute positioning tweek see top comment in css -->
-        <!-- <div class="absolute-wrapper"> </div> -->
-        <!-- Menu -->
-        <div class="side-menu">
-
-        <nav class="navbar navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <div class="brand-wrapper">
-                <!-- Hamburger -->
-                <button type="button" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Brand -->
-                <div class="brand-name-wrapper">
-                    <a class="navbar-brand" href="#">
-                        Brand
-                    </a>
-                </div>
-
-                <!-- Search -->
-                <a data-toggle="collapse" href="#search" class="btn btn-default" id="search-trigger">
-                    <span class="glyphicon glyphicon-search"></span>
-                </a>
-
-                <!-- Search body -->
-                <div id="search" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <form class="navbar-form" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn btn-default "><span class="glyphicon glyphicon-ok"></span></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Main Menu -->
-        <div class="side-menu-container">
-            <ul class="nav navbar-nav">
-
-                <li id="link1"><a href="/admin/students"><span class="glyphicon glyphicon-book"></span> Students</a></li>
-                <li id="link2" class="active"><a href="/admin/instructors"><span class="glyphicon glyphicon-cutlery"></span> Instructors</a></li>
-                <li><a href="/admin/courses"><span class="glyphicon glyphicon-list-alt"></span> Courses</a></li>
-                <li><a href="/admin/cohorts"><span class="glyphicon glyphicon-calendar"></span> Cohorts</a></li>
-
-                <!-- Dropdown-->
-                <li class="panel panel-default" id="dropdown">
-                    <a data-toggle="collapse" href="#dropdown-lvl1">
-                        <span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
-                    </a>
-
-                    <!-- Dropdown level 1 -->
-                    <div id="dropdown-lvl1" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#">Link</a></li>
-                                <li><a href="#">Link</a></li>
-                                <li><a href="#">Link</a></li>
-
-                                <!-- Dropdown level 2 -->
-                                <li class="panel panel-default" id="dropdown">
-                                    <a data-toggle="collapse" href="#dropdown-lvl2">
-                                        <span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
-                                    </a>
-                                    <div id="dropdown-lvl2" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <ul class="nav navbar-nav">
-                                                <li><a href="#">Link</a></li>
-                                                <li><a href="#">Link</a></li>
-                                                <li><a href="#">Link</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-
-                <li><a href="/login"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+              <li>
+                <a href="/admin/instructors"><i class="fas fa-chalkboard-teacher float-left"></i>Instructors</a>
+              </li>
+              <li><a href="/admin/students"><i class="fas fa-graduation-cap float-left"></i>Students</a></li>
+              <li><a href="/admin/courses"><i class="fas fa-chalkboard float-left"></i>Courses</a></li>
+              <li><a href="/admin/cohorts"><i class="fas fa-apple-alt float-left"></i>Cohorts</a></li>
+              <li><a href="/admin/students"><i class="fas fa-cogs float-left"></i>Settings</a></li>
+              <li><a href="/login"><i class="fas fa-arrow-circle-left float-left"></i>Logout</a></li>
 
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </nav>
+          </nav>
 
         </div>
+        <div class="col">
+          <div class="container main">
 
-        <!-- Main Content -->
-        <div class="container">
-            <div class="side-body">
+          <%= yield %>
+          </div>
 
-              <div class="container main">
-                <% flash.each do |key, value| %>
-                  <div class="alert alert-<%= key %>"><%= value %></div>
-                <% end %>
-
-                  <%= yield %>
-
-            </div>
-        </div>
+      </div>
     </div>
+
   </body>
 </html>

@@ -1,5 +1,69 @@
 <h1>Cohorts#index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      COHORT
+    </div>
+    <div class="col-md-2">
+      START DATE
+    </div>
+    <div class="col-md-2">
+      END DATE
+    </div>
+    <div class="col-md-2">
+      COURSE
+    </div>
+    <div class="col-md-2">
+      HOURS
+    </div>
+    <div class="col-md-2">
+      OPTIONS
+    </div>
+  </div>
+</div>
+<div class="main overflow-auto">
+
 <% Cohort.all.each do |c|%>
-<%= link_to(c.name, "/cohort/#{c.id}")%>
-<%= link_to 'Delete', "/admin/cohorts/#{c.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}%><br>
+<div id = "<%"#{c.id}"%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
+
+<div class="col-md-2 border-right">
+  <%= link_to(c.name, "/cohort/#{c.id}")%>
+
+</div>
+<div class="col-md-2 border-right">
+  <% if c.start_date == nil%>
+  <%= "Not yet available"%>
+  <% else%>
+  <%= link_to(c.start_date, "/cohort/#{c.id}")%>
 <% end%>
+</div>
+<div class="col-md-2 border-right">
+  <% if c.start_date == nil%>
+  <%= "Not yet available"%>
+  <% else%>
+  <%= link_to(c.end_date, "/cohort/#{c.id}")%>
+<% end%>
+
+</div>
+<div class="col-md-2 border-right">
+  <%= link_to(c.course.name, "/cohort/#{c.id}")%>
+
+</div>
+<div class="col-md-2 border-right">
+  <%= link_to("#{c.instructor.last_name}, #{c.instructor.first_name}", "/instructors/#{c.instructor.id}")%>
+
+</div>
+  <div class="col-md-2 ">
+    <a href=<%= "/admin/cohorts/#{c.id}/edit"%>>
+      <i class="fas fa-edit float-left"></i>
+    </a>
+    <a href=<%= "/admin/cohorts/#{c.id}"%>>
+      <i class="fas fa-book"></i>
+    </a>
+
+  <%= link_to '', "/admin/cohorts/#{c.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "fas fa-trash-alt float-right"%><br>
+</div>
+
+</div>
+<% end%>
+</div>
