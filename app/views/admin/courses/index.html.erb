@@ -1,14 +1,17 @@
 <h1>Courses#index</h1>
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       NAME
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       HOURS
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       ACTIVE COHORTS
+    </div>
+    <div class="col-md-3">
+      OPTIONS
     </div>
   </div>
 </div>
@@ -18,9 +21,27 @@
 
 <% Course.all.each do |c|%>
 <div id = "<%"#{c.id}"%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
+  <div class="col-md-3">
+    <%= link_to(c.name, "/course/#{c.id}")%>
 
-<%= link_to(c.name, "/course/#{c.id}")%>
-<%= link_to 'Delete', "/admin/courses/#{c.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}%><br>
+  </div>
+  <div class="col-md-3">
+    <%= link_to(c.class_hours, "/course/#{c.id}")%>
+
+  </div>
+  <div class="col-md-3">
+    <%= link_to(c.cohorts.count, "/course/#{c.id}")%>
+
+  </div>
+  <div class="col-md-3">
+    <a href=<%= "/admin/cohorts/#{c.id}/edit"%>>
+      <i class="fas fa-edit float-left"></i>
+    </a>
+    <a href=<%= "/admin/cohorts/#{c.id}"%>>
+      <i class="fas fa-book"></i>
+    </a>
+    <%= link_to '', "/admin/courses/#{c.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "fas fa-trash-alt float-right"%><br>
+  </div>
 </div>
 <% end%>
 </div>
