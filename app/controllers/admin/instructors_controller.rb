@@ -27,9 +27,11 @@ class Admin::InstructorsController < AdminsController
   end
 
   def destroy
+    @instr = Instructor.find_by_id(params[:id])
     respond_to do |format|
       format.js
     end
+    # @instr.destroy
   end
 
   def edit

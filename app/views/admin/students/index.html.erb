@@ -1,7 +1,7 @@
 
 
 <h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+<a href="/admin/students/new"><button type="button" class="btn btn-success">New Student</button></a><br>
 <div class="container">
 
 <div class="row">
@@ -28,7 +28,7 @@
 <div class="main overflow-auto">
 <% Student.all.each do |s|%>
 
-<div id = "<%"#{s.id}"%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
+<div id = "<%= s.id%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
   <div class="col-md-2 border-right">
     <%= link_to(s.first_name, "/admin/students/#{s.id}")%>
   </div>

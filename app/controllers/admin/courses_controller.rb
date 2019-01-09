@@ -39,9 +39,11 @@ class Admin::CoursesController < AdminsController
   end
 
   def destroy
+    @course = Course.find_by_id(params[:id])
     respond_to do |format|
       format.js
     end
+    # @course.destroy
   end
 
   private

@@ -57,9 +57,11 @@ class Admin::CohortsController < AdminsController
   end
 
   def destroy
+    @cohort = Cohort.find_by_id(params[:id])
     respond_to do |format|
       format.js
     end
+    # @cohort.destroy
   end
 
   def add_students

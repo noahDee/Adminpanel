@@ -1,2 +1,15 @@
 <h1>Cohort#show</h1>
 <p><%= @cohort.name%></p>
+<div class="container main">
+  <p>Cohort Name: <%= @cohort.name%></p>
+  <p>Course: <%= @cohort.course.name%></p>
+  <p>Start Date: <%= @cohort.start_date%></p>
+  <p>End Date: <%= @cohort.end_date%></p>
+  <p>Instructor: <%= "#{@cohort.instructor.last_name}, #{@cohort.instructor.first_name}"%></p>
+    <p>
+      <a href=<%= "/admin/cohorts/#{@cohort.id}/edit"%>>
+        <i class="fas fa-user-edit"></i>
+      </a>
+      <%= link_to '', "/admin/cohorts/#{@cohort.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "fas fa-trash-alt"%>
+    </p>
+</div>

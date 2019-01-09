@@ -12,11 +12,11 @@
 <%= f.label :course_id, "Course"%>
 <%= collection_select(:cohort, :course_id, Course.all, :id, :name, {include_blank: true}) %><br>
 <%# <%= collection_select(:students, Student.all, :id, :first_name, {:multiple => true}, {class: "selectpicker"})%><br>
-<%= select_tag "students", options_from_collection_for_select(Student.all, :id, :first_name), {:multiple => true, class: "selectpicker",data: {"live-search": true, "selected-text-format": "static"}, title: "Instructors Below"}%>
+<%# <%= select_tag "students", options_from_collection_for_select(Student.all, :id, :first_name), {:multiple => true, class: "selectpicker",data: {"live-search": true, "selected-text-format": "static"}, title: "Instructors Below"}%> %>
 <%= f.submit%>
 <% end%>
-<select class="selectpicker" name="">
+<!-- <select class="selectpicker" name="">
   <option value="">Ketchup</option>
   <option value="">Ketchup</option>
   <option value="">Ketchup</option>
-</select>
+</select> -->

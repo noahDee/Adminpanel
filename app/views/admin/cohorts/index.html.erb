@@ -1,4 +1,6 @@
 <h1>Cohorts#index</h1>
+<a href="/admin/cohorts/new"><button type="button" class="btn btn-success">New Cohort</button></a><br>
+
 <div class="container">
   <div class="row">
     <div class="col-md-2">
@@ -24,29 +26,29 @@
 <div class="main overflow-auto">
 
 <% Cohort.all.each do |c|%>
-<div id = "<%"#{c.id}"%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
+<div id="<%= c.id%>" class="row shadow-sm p-3 mb-5 bg-white rounded">
 
 <div class="col-md-2 border-right">
-  <%= link_to(c.name, "/cohort/#{c.id}")%>
+  <%= link_to(c.name, "/admin/cohorts/#{c.id}")%>
 
 </div>
 <div class="col-md-2 border-right">
   <% if c.start_date == nil%>
   <%= "Not yet available"%>
   <% else%>
-  <%= link_to(c.start_date, "/cohort/#{c.id}")%>
+  <%= link_to(c.start_date, "/admin/cohorts/#{c.id}")%>
 <% end%>
 </div>
 <div class="col-md-2 border-right">
   <% if c.start_date == nil%>
   <%= "Not yet available"%>
   <% else%>
-  <%= link_to(c.end_date, "/cohort/#{c.id}")%>
+  <%= link_to(c.end_date, "/admin/cohorts/#{c.id}")%>
 <% end%>
 
 </div>
 <div class="col-md-2 border-right">
-  <%= link_to(c.course.name, "/cohort/#{c.id}")%>
+  <%= link_to(c.course.name, "/admin/cohorts/#{c.id}")%>
 
 </div>
 <div class="col-md-2 border-right">

@@ -46,10 +46,11 @@ class Admin::StudentsController < AdminsController
   end
 
   def destroy
+    @student = Student.find_by_id(params[:id])
     respond_to do |format|
       format.js
     end
-    # @student= = Student.find_by_id(params[:id])
+    # @student.destroy
     # redirect_to new_admin_student_path
   end
 

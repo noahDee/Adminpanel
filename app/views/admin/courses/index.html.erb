@@ -1,4 +1,6 @@
 <h1>Courses#index</h1>
+<a href="/admin/courses/new"><button type="button" class="btn btn-success">New Course</button></a><br>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -20,24 +22,24 @@
 <div class="main overflow-auto">
 
 <% Course.all.each do |c|%>
-<div id = "<%"#{c.id}"%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
+<div id = "<%= c.id%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
   <div class="col-md-3">
-    <%= link_to(c.name, "/course/#{c.id}")%>
+    <%= link_to(c.name, "/admin/courses/#{c.id}")%>
 
   </div>
   <div class="col-md-3">
-    <%= link_to(c.class_hours, "/course/#{c.id}")%>
+    <%= link_to(c.class_hours, "/admin/courses/#{c.id}")%>
 
   </div>
   <div class="col-md-3">
-    <%= link_to(c.cohorts.count, "/course/#{c.id}")%>
+    <%= link_to(c.cohorts.count, "/admin/courses/#{c.id}")%>
 
   </div>
   <div class="col-md-3">
-    <a href=<%= "/admin/cohorts/#{c.id}/edit"%>>
+    <a href=<%= "/admin/courses/#{c.id}/edit"%>>
       <i class="fas fa-edit float-left"></i>
     </a>
-    <a href=<%= "/admin/cohorts/#{c.id}"%>>
+    <a href=<%= "/admin/courses/#{c.id}"%>>
       <i class="fas fa-book"></i>
     </a>
     <%= link_to '', "/admin/courses/#{c.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "fas fa-trash-alt float-right"%><br>

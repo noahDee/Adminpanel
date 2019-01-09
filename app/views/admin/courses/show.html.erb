@@ -1,2 +1,14 @@
 <h1>Courses#show</h1>
 <p><%= @course.name%></p>
+<div class="container main">
+  <p>Course Name: <%= @course.name%></p>
+  <p>Hours: <%= @course.class_hours%></p>
+  <p>Active Cohorts: <%= @course.cohorts.count%></p>
+  <!-- <p>Cohorts: <%= @course.cohorts.count%></p> -->
+    <p>
+      <a href=<%= "/admin/courses/#{@course.id}/edit"%>>
+        <i class="fas fa-user-edit"></i>
+      </a>
+      <%= link_to '', "/admin/courses/#{@course.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "fas fa-trash-alt"%>
+    </p>
+</div>

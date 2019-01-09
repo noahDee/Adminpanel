@@ -1,2 +1,19 @@
 <h1>Instructor#show</h1>
 <p><%= @instr.first_name%></p>
+<div class="container main">
+  <p>First name: <%= @instr.first_name%></p>
+
+  <p>Last name: <%= @instr.last_name%></p>
+  <p>Email: <%= @instr.email%></p>
+  <p>Active: <%= @instr.active.to_s%></p>
+  <p>Age: <%= @instr.age%></p>
+  <p>Education: <%= @instr.education%></p>
+  <p>Salary: <%= @instr.salary%></p>
+  <!-- <p>Cohorts: <%= @instr.cohorts.count%></p> -->
+    <p>
+      <a href=<%= "/admin/instructors/#{@instr.id}/edit"%>>
+        <i class="fas fa-user-edit"></i>
+      </a>
+      <%= link_to '', "/admin/instructors/#{@instr.id}", method: :delete, data: {confirm: 'Are you sure?', remote: true}, class: "fas fa-trash-alt"%>
+    </p>
+</div>
