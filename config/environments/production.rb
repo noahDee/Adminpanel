@@ -83,9 +83,9 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
   if ENV['RACK_ENV']
-    ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
-  else
     set :database, {adapter: "sqlite3", database: "database.sqlite3"}
+  else
+    ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
   end
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
