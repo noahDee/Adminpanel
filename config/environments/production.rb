@@ -1,4 +1,9 @@
 Rails.application.configure do
+  if ENV['RACK_ENV']
+    ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+  else
+    set :database, {adapter: "sqlite3", database: "database.sqlite3"}
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -82,11 +87,6 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-  if ENV['RACK_ENV']
-    ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
-  else
-    set :database, {adapter: "sqlite3", database: "database.sqlite3"}
-  end
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
