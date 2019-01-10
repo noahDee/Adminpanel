@@ -1,13 +1,12 @@
-<h1>Instructors#show</h1>
-<p>Find me in app/views/instructors/show.html.erb</p>
-<%= @instr.first_name%>
+<h1><%= "#{@instr.first_name} #{@instr.last_name}"%></h1>
+<p>Instructor info</p>
 <div class="container main">
-  <p>First name: <%= @instr.first_name%></p>
+  <p><b>First name:</b> <%= @instr.first_name%></p>
 
-  <p>Last name: <%= @instr.last_name%></p>
-  <p>Email: <%= @instr.email%></p>
-  <p>Active: <%= @instr.active.to_s%></p>
-  <p>Education: <%= @instr.education%></p>
+  <p><b>Last name:</b> <%= @instr.last_name%></p>
+  <p><b>Email:</b> <%= @instr.email%></p>
+  <p><b>Active:</b> <%= @instr.active.to_s%></p>
+  <p><b>Education:</b> <%= @instr.education%></p>
   <!-- <p>Cohorts: <%= @instr.cohorts.count%></p> -->
 
 </div>

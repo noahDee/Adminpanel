@@ -1,14 +1,14 @@
-<h1>Instructor#show</h1>
-<p><%= @instr.first_name%></p>
+<h1><%= "#{@instr.first_name} #{@instr.last_name}"%></h1>
+<p>Instructor info</p>
 <div class="container main">
-  <p>First name: <%= @instr.first_name%></p>
+  <p><b>First name:</b> <%= @instr.first_name%></p>
 
-  <p>Last name: <%= @instr.last_name%></p>
-  <p>Email: <%= @instr.email%></p>
-  <p>Active: <%= @instr.active.to_s%></p>
-  <p>Age: <%= @instr.age%></p>
-  <p>Education: <%= @instr.education%></p>
-  <p>Salary: <%= @instr.salary%></p>
+  <p><b>Last name:</b> <%= @instr.last_name%></p>
+  <p><b>Email:</b> <%= @instr.email%></p>
+  <p><b>Active:</b> <%= @instr.active.to_s%></p>
+  <p><b>Age:</b> <%= @instr.age%></p>
+  <p><b>Education:</b> <%= @instr.education%></p>
+  <p><b>Salary:</b> <%= @instr.salary%></p>
   <!-- <p>Cohorts: <%= @instr.cohorts.count%></p> -->
     <p>
       <a href=<%= "/admin/instructors/#{@instr.id}/edit"%>>

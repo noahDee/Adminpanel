@@ -1,9 +1,9 @@
-<h1>Courses#show</h1>
-<p><%= @course.name%></p>
+<h1><%= @course.name%></h1>
+<p>Course info</p>
 <div class="container main">
-  <p>Course Name: <%= @course.name%></p>
-  <p>Hours: <%= @course.class_hours%></p>
-  <p>Active Cohorts: <%= @course.cohorts.count%></p>
+  <p><b>Course Name:</b> <%= @course.name%></p>
+  <p><b>Hours:</b> <%= @course.class_hours%></p>
+  <p><b>Active Cohorts:</b> <%= @course.cohorts.count%></p>
   <!-- <p>Cohorts: <%= @course.cohorts.count%></p> -->
     <p>
       <a href=<%= "/admin/courses/#{@course.id}/edit"%>>

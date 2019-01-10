@@ -8,7 +8,7 @@ class InstructorsController < ApplicationController
 
   def show
     if session[:user] == 'instructor' && session[:user_id] == params[:id].to_i
-    redirect_to '/instructor-home'
+    redirect_to '/instructor/home'
     else
     @instr = Instructor.find(params[:id])
     end

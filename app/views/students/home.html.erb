@@ -1,13 +1,13 @@
-<h1><%= @student.first_name%>'s Homepage (<%= @student.email%>)</h1>
+<h1>Welcome back <%= "#{@student.first_name} #{@student.last_name}"%></h1>
 <div class="container main">
-    <p>First name: <%= @student.first_name%></p>
+    <p><b>First name:</b> <%= @student.first_name%></p>
 
-   <p>Last name: <%= @student.last_name%></p>
-  <p>Email: <%= @student.email%></p>
-  <p>Enrolled: <%= @student.enrolled.to_s%></p>
-  <p>Age: <%= @student.age%></p>
-  <p>Education: <%= @student.education%></p>
-  <p>Cohorts: <%= @student.first_name%></p>
+   <p><b>Last name:</b> <%= @student.last_name%></p>
+  <p><b>Email:</b> <%= @student.email%></p>
+  <p><b>Enrolled:</b> <%= @student.enrolled.to_s%></p>
+  <p><b>Age:</b> <%= @student.age%></p>
+  <p><b>Education:</b> <%= @student.education%></p>
+  <p><b>Cohorts:</b> <%= @student.first_name%></p>
 
     <p>
       <a href=<%= "/student/edit"%>>
