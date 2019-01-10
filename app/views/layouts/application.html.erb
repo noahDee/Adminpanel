@@ -19,24 +19,16 @@
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
       <div class="row">
-        <div class="col-md-3">
-          <img class="rounded-circle" src="" alt="">
-          <nav class="border-right">
-            <ul>
+        <% unless !session[:user]%>
+        <% if session[:user] == 'admin'%>
+        <%= render :template => 'layouts/admin_nav.html.erb'%>
+        <% elsif session[:user] == 'student'%>
+        <%= render :template => 'layouts/student_nav.html.erb'%>
+        <% else%>
+        <%= render :template => 'layouts/instructor_nav.html.erb'%>
+        <% end%>
+        <% end%>
 
-              <li>
-                <a href="/admin/instructors"><i class="fas fa-chalkboard-teacher float-left"></i>Instructors</a>
-              </li>
-              <li><a href="/admin/students"><i class="fas fa-graduation-cap float-left"></i>Students</a></li>
-              <li><a href="/admin/courses"><i class="fas fa-chalkboard float-left"></i>Courses</a></li>
-              <li><a href="/admin/cohorts"><i class="fas fa-apple-alt float-left"></i>Cohorts</a></li>
-              <li><a href="/admin/students"><i class="fas fa-cogs float-left"></i>Settings</a></li>
-              <li><a href="/login"><i class="fas fa-arrow-circle-left float-left"></i>Logout</a></li>
-
-            </ul>
-          </nav>
-
-        </div>
         <div class="col">
           <div class="container main">
 

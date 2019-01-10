@@ -1,5 +1,50 @@
 <h1>Instructors#index</h1>
 <p>Find me in app/views/instructors/index.html.erb</p>
-<% @instructors.each do |i|%>
-<%= link_to(i.first_name, "/instructor/#{i.id}")%><br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3">
+      FIRST NAME
+    </div>
+    <div class="col-md-3">
+      LAST NAME
+    </div>
+    <div class="col-md-3">
+      EMAIL
+    </div>
+    
+    <div class="col-md-3">
+      ACTIVE
+    </div>
+
+  </div>
+  </div>
+
+<div class="main overflow-auto">
+
+<% Instructor.all.each do |i|%>
+
+<div id="<%=i.id%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
+  <div class="col-md-3 border-right">
+    <%= link_to(i.first_name, "/instructors/#{i.id}")%>
+
+  </div>
+  <div class="col-md-3 border-right">
+    <%= link_to(i.last_name, "/instructors/#{i.id}")%>
+
+  </div>
+  <div class="col-md-3 border-right">
+    <%= link_to(i.email, "/instructors/#{i.id}")%>
+
+  </div>
+
+  <div class="col-md-3 border-right">
+    <%= link_to(i.active.to_s, "/instructors/#{i.id}")%>
+
+  </div>
+
+</div>
 <% end%>
+
+
+</div>

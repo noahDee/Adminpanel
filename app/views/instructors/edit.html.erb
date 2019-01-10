@@ -1,4 +1,6 @@
 <h1>Instructors#edit</h1>
+<div class="container main">
+
 <%= form_for(@instr, url: edit_instructor_url) do |f|%>
 
 <%= f.label :email%>
@@ -11,3 +13,5 @@
 
 <%= f.submit "Submit"%>
 <% end %>
+
+</div>

@@ -1,5 +1,37 @@
 <h1>Courses#index</h1>
 <p>Find me in app/views/courses/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      NAME
+    </div>
+    <div class="col-md-4">
+      HOURS
+    </div>
+    <div class="col-md-4">
+      ACTIVE COHORTS
+    </div>
+  </div>
+</div>
+<div class="container">
+
+<div class="main overflow-auto">
+
 <% Course.all.each do |c|%>
-<%= link_to(c.name, "/course/#{c.id}")%><br>
+<div id = "<%= c.id%>"class="row shadow-sm p-3 mb-5 bg-white rounded">
+  <div class="col-md-4">
+    <%= link_to(c.name, "/courses/#{c.id}")%>
+
+  </div>
+  <div class="col-md-4">
+    <%= link_to(c.class_hours, "/courses/#{c.id}")%>
+
+  </div>
+  <div class="col-md-4">
+    <%= link_to(c.cohorts.count, "/courses/#{c.id}")%>
+
+  </div>
+
+</div>
 <% end%>
+</div>

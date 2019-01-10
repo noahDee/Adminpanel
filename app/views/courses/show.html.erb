@@ -1,3 +1,10 @@
 <h1>Courses#show</h1>
 <p>Find me in app/views/courses/show.html.erb</p>
 <%= @course.name%>
+<div class="container main">
+  <p>Course Name: <%= @course.name%></p>
+  <p>Hours: <%= @course.class_hours%></p>
+  <p>Active Cohorts: <%= @course.cohorts.count%></p>
+  <!-- <p>Cohorts: <%= @course.cohorts.count%></p> -->
+    
+</div>

@@ -1,3 +1,17 @@
 <h1><%= @instr.first_name%>'s Homepage (<%= @instr.email%>)</h1>
-<%= link_to('all students','/all-students')%>
-<%= link_to('all instructors','/all-instructors')%>
+<div class="container main">
+  <p>First name: <%= @instr.first_name%></p>
+
+  <p>Last name: <%= @instr.last_name%></p>
+  <p>Email: <%= @instr.email%></p>
+  <p>Active: <%= @instr.active.to_s%></p>
+  <p>Age: <%= @instr.age%></p>
+  <p>Education: <%= @instr.education%></p>
+  <p>Salary: <%= @instr.salary%></p>
+  <!-- <p>Cohorts: <%= @instr.cohorts.count%></p> -->
+    <p>
+      <a href=<%= "/instructor/edit"%>>
+        <i class="fas fa-user-edit"></i>
+      </a>
+    </p>
+</div>
