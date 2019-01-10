@@ -89,6 +89,12 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  if ENV['RACK_ENV']
+    ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+  else
+    set :database, {adapter: "sqlite3", database: "database.sqlite3"}
+  end
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
