@@ -35,6 +35,15 @@ class Admin::CohortsController < AdminsController
 
   def update
     @cohort = Cohort.find_by_id(params[:id])
+    p params[:cohort][:students]
+    if params[:cohort][:students].count > 1
+      params[:cohort][:students].each do |s|
+        unless Student.find_by_id(s.to_i) == nil
+        @cohort.students << Student.find_by_id(s.to_i)
+      end
+      end
+    end
+    @cohort.students.uniq
     @old_instr = Instructor.find_by_id(@cohort.instructor_id)
     @cohort.update(cohort_params)
     @instr = Instructor.find_by_id(@cohort.instructor_id)

@@ -6,6 +6,12 @@
   <p><b>Start Date:</b> <%= @cohort.start_date%></p>
   <p><b>End Date:</b> <%= @cohort.end_date%></p>
   <p><b>Instructor:</b> <%= "#{@cohort.instructor.last_name}, #{@cohort.instructor.first_name}"%></p>
+  <label><b>Students:</b></label>
+  <div style="overflow-y: scroll; height:50px; width: 625px;">
+    <% @cohort.students.each do |s|%>
+    <p><%= s.full_credentials%></p>
+    <% end%>
+  </div>
     <p>
       <a href=<%= "/admin/cohorts/#{@cohort.id}/edit"%>>
         <i class="fas fa-user-edit"></i>

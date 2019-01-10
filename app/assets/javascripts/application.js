@@ -13,15 +13,16 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery3
+//= require popper
+//= require bootstrap
 //= require_tree .
-$(document).ready(function(){
-$(".panelToggle").click(function(){
-    $(".userPanel").toggleClass("width200px width45px");
-	$("i",this).toggleClass("fa-arrow-left fa-arrow-right");
-	$(".userLogo img").toggleClass("width50p width90p");
-	$(".userNameSpan").toggleClass("show hide");
-	$(".userMenu span").toggleClass("show hide");
-	$(".userMenu ul").toggleClass("showI2");
-	$(".userMenu ul i").toggleClass("Icon Icon2");
+$(document).on('ready page:load', function() {
+  $('*:not(.bootstrap-select) > .selectpicker').selectpicker('refresh');
 });
+$(document).on('turbolinks:load', function() {
+   $(window).trigger('load.bs.select.data-api');
+});
+$(document).ready(function() {
+   $('.selectpicker').selectpicker();
 });

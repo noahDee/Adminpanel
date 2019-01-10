@@ -6,4 +6,7 @@ class Student < ApplicationRecord
   validates :age, numericality: {less_than: 150, only_integer: true}, presence: true
   # has_and_belongs_to_many :cohorts
   belongs_to :cohorts, optional: true
+  def full_credentials
+  "#{last_name}, #{first_name} - #{id}"
+  end
 end

@@ -7,4 +7,7 @@ class Instructor < ApplicationRecord
   validates :salary, numericality: { greater_than: 0, only_integer: true}, presence: true
   # has_and_belongs_to_many :cohorts
   has_many :cohorts
+  def full_credentials
+  "#{last_name}, #{first_name} - #{id}"
+  end
 end

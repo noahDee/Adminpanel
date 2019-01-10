@@ -1,5 +1,5 @@
-<h1>Courses#edit</h1>
-<p>Find me in app/views/courses/edit.html.erb</p>
+<h1>Edit</h1>
+<p>Edit course <%= @course.name%></p>
 <%= form_for [:admin, @course] do |f|%>
 <%= f.label :name %>
 <%= f.text_field :name%><br>

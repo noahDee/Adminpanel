@@ -1,5 +1,5 @@
-<h1>Students#edit</h1>
-<p>Find me in app/views/students/edit.html.erb</p>
+<h1>Edit</h1>
+<p>Edit student <%= "#{@student.last_name}, #{@student.first_name}"%></p>
 <%= form_for [:admin, @student] do |f|%>
 <%= f.label :first_name, "First Name"%>
 <%= f.text_field :first_name%><br>

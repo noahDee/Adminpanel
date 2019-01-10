@@ -1,5 +1,5 @@
-<h1>Instructors#edit</h1>
-<p>Find me in app/views/instructors/edit.html.erb</p>
+<h1>Edit</h1>
+<p>Edit instructor <%= "#{@instr.last_name}, #{@instr.first_name}"%></p>
 <%= form_for [:admin, @instr] do |f|%>
 <%= f.label :first_name, "First Name"%>
 <%= f.text_field :first_name%><br>
