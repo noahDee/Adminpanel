@@ -51,7 +51,7 @@ class Admin::StudentsController < AdminsController
     respond_to do |format|
       format.js
     end
-    # @student.destroy
+    @student.destroy
     # redirect_to new_admin_student_path
   end
 

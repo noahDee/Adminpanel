@@ -70,7 +70,7 @@ class Admin::CohortsController < AdminsController
     respond_to do |format|
       format.js
     end
-    # @cohort.destroy
+    @cohort.destroy
   end
 
   def add_students

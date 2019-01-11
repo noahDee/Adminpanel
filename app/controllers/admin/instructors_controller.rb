@@ -31,7 +31,7 @@ class Admin::InstructorsController < AdminsController
     respond_to do |format|
       format.js
     end
-    # @instr.destroy
+    @instr.destroy
   end
 
   def edit

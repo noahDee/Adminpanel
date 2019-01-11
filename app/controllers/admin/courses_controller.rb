@@ -43,7 +43,7 @@ class Admin::CoursesController < AdminsController
     respond_to do |format|
       format.js
     end
-    # @course.destroy
+    @course.destroy
   end
 
   private
