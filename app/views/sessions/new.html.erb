@@ -1,3 +1,11 @@
+<div class="demo">
+  <%= form_for(:session, authenticity_token: true) do |f|%>
+  <%= f.hidden_field :email, value: "admin@panel.com"%>
+  <%=  f.hidden_field :password, value: "admin"%>
+  <%=  f.hidden_field :user, value: 'Admin'%>
+  <%=  f.submit "Here for a Demo? Click here"%>
+  <% end%>
+</div>
 <h1>Login</h1>
 <%= form_for(:session) do |f|%>
 <%= f.label :email  %>

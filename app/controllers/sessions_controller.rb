@@ -12,7 +12,7 @@ def create
     student_login
   elsif params['user'] == "Instructor"
     instructor_login
-  elsif params['user'] == "Admin"
+  elsif params['user'] == "Admin" || params['session']['user'] == "Admin"
     admin_login
   end
   end

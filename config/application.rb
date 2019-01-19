@@ -18,6 +18,6 @@ module AdminApp
   end
 end
 
-# Raven.configure do |config|
-#   config.dsn = 'https://c3b2e91b5d234586abf33f078e8e12d1:cb6dba79464d43c6a183581aa9609bc5@sentry.io/1366244'
-# end
+Raven.configure do |config|
+  config.dsn = ENV['RAVEN_DSN']
+end

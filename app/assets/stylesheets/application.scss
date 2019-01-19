@@ -47,3 +47,9 @@ nav {
 	 border-radius: 10px;
 	 margin-bottom: 10px;
  }
+
+ .demo > form > input[type = "submit"] {
+   color: green !important;
+   margin-left: 70%;
+   margin-top: 1px;
+ }
