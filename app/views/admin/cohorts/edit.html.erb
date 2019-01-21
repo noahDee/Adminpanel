@@ -9,9 +9,9 @@
 <%= f.label :end_date, "End Date"%>
 <%= f.date_field :end_date, value: @cohort.end_date%><br>
 <%= f.label :instructor, "Instructor"%>
-<%= collection_select(:cohort, :instructor_id, Instructor.all, :id, :full_credentials, {include_blank: true}) %><br>
+<%= collection_select(:cohort, :instructor_id, Instructor.all, :id, :full_credentials) %><br>
 <%= f.label :course_id, "Course"%>
-<%= collection_select(:cohort, :course_id, Course.all, :id, :name, {include_blank: true}) %><br>
+<%= collection_select(:cohort, :course_id, Course.all, :id, :name) %><br>
 <%= f.label :students, "Add Students"%>
 <%= collection_select(:cohort, :students, Student.all, :id, :full_credentials, {}, {:multiple => true, class: "selectpicker", data: {"live-search": true}})%><br>
 <%= f.submit%>
