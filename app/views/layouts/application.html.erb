@@ -18,6 +18,9 @@
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
+    <div class="jumbotron jumbotron-fluid">
+      <%= image_tag("hero.jpg") %>
+    </div>
       <div class="row">
         <% unless !session[:user]%>
         <% if session[:user] == 'admin'%>
