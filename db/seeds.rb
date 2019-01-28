@@ -17,6 +17,7 @@ instructor1.save
 student1.save
 cohort1.instructor = instructor1
 cohort1.students << student1
+cohort1.course = course1
 cohort1.save
 course1.cohorts << cohort1
 course1.save
