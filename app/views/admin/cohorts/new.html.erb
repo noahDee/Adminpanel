@@ -1,14 +1,42 @@
 <h1>Add new Cohort</h1>
 <%= form_for [:admin, @cohort] do |f|%>
-<%= f.label :name%>
-<%= f.text_field :name%><br>
-<%= f.label :start_date, "Start Date"%>
-<%= f.date_field :start_date%><br>
-<%= f.label :end_date, "End Date"%>
-<%= f.date_field :end_date%><br>
-<%= f.label :instructor, "Instructor"%>
-<%= collection_select(:cohort, :instructor_id, Instructor.all, :id, :first_name) %><br>
-<%= f.label :course_id,"Course"%>
-<%= collection_select(:cohort, :course_id, Course.all, :id, :name) %><br>
-<%= f.submit%>
+
+<div class="form-row">
+  <%= f.label :name, {class: "col-form-label col-md-2 offset-md-3"}%>
+  <div class="form-group col-3 ml-0">
+    <%= f.text_field :name%><br>
+  </div>
+</div>
+
+<div class="form-row">
+  <%= f.label :start_date, "Start Date", {class: "col-form-label col-md-2 offset-md-3"}%>
+  <div class="form-group col-3 ml-0">
+    <%= f.date_field :start_date%><br>
+  </div>
+</div>
+
+<div class="form-row">
+  <%= f.label :end_date, "End Date", {class: "col-form-label col-md-2 offset-md-3"}%>
+  <div class="form-group col-3 ml-0">
+    <%= f.date_field :end_date%><br>
+  </div>
+</div>
+
+<div class="form-row">
+  <%= f.label :instructor, "Instructor", {class: "col-form-label col-md-2 offset-md-3"}%>
+  <div class="form-group col-2 ml-0">
+    <%= collection_select(:cohort, :instructor_id, Instructor.all, :id, :first_name) %><br>
+  </div>
+</div>
+
+<div class="form-row">
+  <%= f.label :course_id,"Course", {class: "col-form-label col-md-2 offset-md-3"}%>
+  <div class="form-group col-2 ml-0">
+    <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %><br>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.submit%>
+</div>
 <% end%>

@@ -8,12 +8,27 @@
 </div>
 <h1>Login</h1>
 <%= form_for(:session) do |f|%>
-<%= f.label :email  %>
-<%= f.email_field :email %><br>
-<%=  f.label :password%>
-<%=  f.password_field :password%><br>
-<%=  f.label :user%>
-<%=  select_tag(:user, options_for_select([['Admin'], ['Student'], ['Instructor']]))%><br>
+
+<div class="form-row">
+  <%= f.label :email, {class: "col-form-label col-md-1 offset-md-4"}  %>
+  <div class="form-group col-3  ml-0">
+    <%= f.email_field :email, {class: "form-control"} %>
+  </div>
+</div>
+<div class="form-row">
+  <%=  f.label :password, {class: "col-form-label col-md-1 offset-md-4"}%>
+  <div class="form-group col-3 ml-0">
+    <%=  f.password_field :password, {class: "form-control"}%>
+  </div>
+</div>
+<div class="form-row">
+  <%=  f.label :user, {class: "col-form-label col-md-1 offset-md-4 "}%>
+  <div class="form-group col-2 offset-md-1 ml-0">
+    <%=  select_tag(:user, options_for_select([['Admin'], ['Student'], ['Instructor']]), {class: "form-control"})%>
+  </div>
+</div>
+<div class="form-group">
 
 <%=  f.submit "Log in"%>
+</div>
 <% end%>
