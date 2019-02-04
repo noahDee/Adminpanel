@@ -24,7 +24,7 @@ class Admin::CohortsController < AdminsController
       @cohort.save
       redirect_to "/admin/cohorts/#{@cohort.id}"
     else
-      flash[:error] = "Invalid credentials"
+      flash[:danger] = "Invalid credentials"
       render 'new'
     end
   end
@@ -57,7 +57,7 @@ class Admin::CohortsController < AdminsController
     if @cohort.valid?
       redirect_to "/admin/cohorts/#{@cohort.id}"
     else
-      flash[:error] = "Invalid credentials"
+      flash[:danger] = "Invalid credentials"
       render 'edit'
     end
   end

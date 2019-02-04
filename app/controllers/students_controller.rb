@@ -30,7 +30,7 @@ end
     if @student.valid?
       redirect_to student_home_path
     else
-      flash[:error] = "Invalid Credentials"
+      flash[:danger] = "Invalid Credentials"
       render 'edit'
     end
   end
@@ -43,7 +43,7 @@ end
 
   def check_user
     if session[:user] != "student"
-      flash.now[:error] = "You do not have to access this page"
+      flash.now[:danger] = "You do not have to access this page"
       redirect_to '/login'
     end
   end

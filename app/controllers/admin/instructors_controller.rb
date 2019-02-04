@@ -17,7 +17,7 @@ class Admin::InstructorsController < AdminsController
         redirect_to "/admin/instructors/#{@instr.id}"
       else
         p @instr.errors.messages
-        flash.now[:error] = "Invalid Credentials"
+        flash.now[:danger] = "Invalid Credentials"
         render 'new'
       end
   end
@@ -44,7 +44,7 @@ class Admin::InstructorsController < AdminsController
       if @instr.valid?
         redirect_to "/admin/instructors/#{@instr.id}"
       else
-        flash.now[:error] = "Invalid Credentials"
+        flash.now[:danger] = "Invalid Credentials"
         render 'edit'
       end
   end

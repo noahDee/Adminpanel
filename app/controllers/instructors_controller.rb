@@ -29,7 +29,7 @@ class InstructorsController < ApplicationController
     if @instr.valid?
       redirect_to instructor_home_path
     else
-      flash[:error] = "Invalid Credentials"
+      flash[:danger] = "Invalid Credentials"
       render 'edit'
     end
   end
@@ -43,7 +43,7 @@ class InstructorsController < ApplicationController
 
   def check_user
     if session[:user] != "instructor"
-      flash.now[:error] = "You do not have to access this page"
+      flash.now[:danger] = "You do not have to access this page"
       redirect_to '/login'
     end
   end

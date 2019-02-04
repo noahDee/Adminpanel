@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
   private
   def require_admin
     if session[:user] != "admin"
-      flash.now[:error] = "You do not have access to this page"
+      flash.now[:danger] = "You do not have access to this page"
       redirect_to login_path
   end
 end

@@ -7,6 +7,7 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Roboto+Slab|Staatliches" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,12 +16,16 @@
 
   <body>
 
+    <div class="jumbotron jumbotron-fluid">
+      <%= image_tag("hero.jpg", class: "jumbo-img") %>
+      <h1 class="jumbo-text">Pamela's Culinary School</h1>
+      <% if (session[:user])%>
+      <p class= "jumbo-caption"><%= session[:user].upcase()%></p>
+      <% end%>
+    </div>
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-    <div class="jumbotron jumbotron-fluid">
-      <%= image_tag("hero.jpg") %>
-    </div>
       <div class="row">
         <% unless !session[:user]%>
         <% if session[:user] == 'admin'%>

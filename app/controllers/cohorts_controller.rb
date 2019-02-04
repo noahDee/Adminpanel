@@ -25,7 +25,7 @@ class CohortsController < ApplicationController
       @cohort.save
       redirect_to "/cohorts/#{@cohort.id}"
     else
-      flash[:error] = "Invalid credentials"
+      flash[:danger] = "Invalid credentials"
       render 'new'
     end
   end

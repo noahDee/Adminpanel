@@ -15,7 +15,7 @@ class Admin::CoursesController < AdminsController
       @course.save
       redirect_to "/admin/courses/#{@course.id}"
     else
-      flash.now[:error] = "Invalid Credentials"
+      flash.now[:danger] = "Invalid Credentials"
       render 'new'
     end
   end
@@ -30,7 +30,7 @@ class Admin::CoursesController < AdminsController
     if @course.valid?
       redirect_to "/admin/courses/#{@course.id}"
     else
-      flash.now[:error] = "Invalid Credentials"
+      flash.now[:danger] = "Invalid Credentials"
       render 'edit'
     end
   end
