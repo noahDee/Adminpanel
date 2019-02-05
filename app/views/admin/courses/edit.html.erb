@@ -2,14 +2,14 @@
 <p>Edit course <%= @course.name%></p>
 <%= form_for [:admin, @course] do |f|%>
 <div class="form-row">
-  <%= f.label :name, {class: "col-form-label col-md-2 offset-md-3"}%>
+  <%= f.label :Course_name, {class: "col-form-label col-md-2 offset-md-3"}%>
   <div class="form-group col-3 ml-0">
     <%= f.text_field :name%><br>
   </div>
 </div>
 
 <div class="form-row">
-  <%= f.label :class_hours, "Class Hours", {class: "col-form-label col-md-2 offset-md-3"}%>
+  <%= f.label :class_hours, "Course Hours", {class: "col-form-label col-md-2 offset-md-3"}%>
   <div class="form-group col-3 ml-0">
     <%= f.number_field :class_hours%><br>
   </div>

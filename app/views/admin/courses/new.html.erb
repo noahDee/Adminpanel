@@ -1,20 +1,15 @@
 <h1>Add new Course</h1>
 <%= form_for [:admin, @course] do |f|%>
-<div class="form-row">
-  <%= f.label :name , {class: "col-form-label col-md-2 offset-md-3"}%>
-  <div class="form-group col-3 ml-0">
-    <%= f.text_field :name%><br>
+  <div class="form-group">
+    <%= f.text_field :name, placeholder:"Course Name"%>
   </div>
-</div>
 
-<div class="form-row">
-  <%= f.label :class_hours, "Class Hours", {class: "col-form-label col-md-2 offset-md-3"}%>
-  <div class="form-group col-3 ml-0">
-    <%= f.number_field :class_hours%><br>
+  <div class="form-group">
+    <%= f.number_field :class_hours, placeholder:"Cours Hours"%>
   </div>
-</div>
 
 <div class="form-group">
   <%= f.submit "Submit"%>
 </div>
 <%end%>
+</div>
