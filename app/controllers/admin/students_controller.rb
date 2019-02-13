@@ -7,7 +7,8 @@ class Admin::StudentsController < AdminsController
   def create
     @student = Student.new(new_student_params)
     @student.email.downcase!
-    @student.password = (0...8).map { (65 + rand(26)).chr }.join
+    @student.enrolled = false
+    # @student.password = (0...8).map { (65 + rand(26)).chr }.join
     if @student.valid?
       @student.save
       redirect_to "/admin/students/#{@student.id}"
@@ -57,7 +58,7 @@ class Admin::StudentsController < AdminsController
 
   private
   def new_student_params
-    params.require(:student).permit(:first_name, :last_name, :email, :enrolled, :age, :education)
+    params.require(:student).permit(:first_name, :last_name, :email, :enrolled, :age, :education, :password)
   end
 
   def edit_student_params
